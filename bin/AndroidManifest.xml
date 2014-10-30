@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chinaiiss.activity"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+
+    <application
+        android:name="com.chinaiiss.activity.ExploreApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="MMPBZ-NTAH4-ZBMU5-XHJGE-FBWZ7-KBBBY" />
+
+        <activity
+            android:name=".ExploreActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:multiprocess="false"
+            android:screenOrientation="sensor" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="file" />
+                <data android:mimeType="*/*" />
+                <data android:pathPattern=".*\\.gpx" />
+                <data android:host="*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.chinaiiss.activity.Preferences"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity android:name="com.chinaiiss.activity.Help" >
+        </activity>
+
+        <service android:name="com.chinaiiss.service.LocationService" >
+            <intent-filter>
+                <action android:name="com.chinaiiss.service.LocationService" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
