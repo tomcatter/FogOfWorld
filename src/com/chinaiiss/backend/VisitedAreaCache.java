@@ -55,7 +55,7 @@ public class VisitedAreaCache implements ExploredProvider {
 	private boolean mCached = false;
 
 	private Intent mLocationServiceIntent = new Intent(
-			"org.com.unchiujar.LocationService");
+			"com.chinaiiss.service.LocationService");
 	private LocationRecorder recorder;
 
 	public VisitedAreaCache(Context context) {
